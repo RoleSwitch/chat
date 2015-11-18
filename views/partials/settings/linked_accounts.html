@@ -1,0 +1,34 @@
+<div class="ui segment">
+  <div class="ui grid">
+    <div class="row">
+      <div class="fourteen wide column">
+        <div class="ui fluid labeled icon facebook button">
+          <i class="facebook icon"></i>
+          <span class="text">Facebook</span>
+        </div>
+      </div>
+      <div class="two wide column">
+        {%- if user.facebook.id.length > 0 -%}
+          <i class="big checkmark green icon"></i>
+        {%- else -%}
+          <i class="big remove red icon"></i>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="row">
+      <div class="fourteen wide column">
+        <div class="ui fluid labeled icon google plus button">
+          <i class="google plus icon"></i>
+          <span class="text">Google plus</span>
+        </div>
+      </div>
+      <div class="two wide column">
+        {%- if user.google.id.length > 0 -%}
+          <i class="big checkmark green icon"></i>
+        {%- else -%}
+          <i class="big remove red icon"></i>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>

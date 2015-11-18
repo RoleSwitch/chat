@@ -1,0 +1,39 @@
+<div class="ui small Assistant modal scrolling">
+	<i class="close icon"></i>
+	<div class="header">
+		Roles
+	</div>
+	<div class="content">
+		<div class="ui dimmer" id="stepLoad">
+			<div class="ui medium text loader">{{ __('loading') }}</div>
+		</div>
+		<div class="ui grid">
+			<div class="header row">
+				<div class="ui three steps">
+					<div class="ui active step" id="step1">
+						{{ __('index modal iam') }}
+					</div>
+					<div class="ui disabled step" id="step2">
+						{{ __('index modal youare') }}
+					</div>
+					<div class="ui disabled step" id="step3">
+						{{ __('index modal ready') }}
+					</div>
+				</div>
+				<!--  END OF STEP ROW -->
+			</div>
+			<div class="content row">
+				<div class="ui column" id="stepView">
+					<!-- AJAX STEP-VIEW CONTENT -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="actions">
+		<div class="ui buttons">
+			<div class="ui negative button">{{ __('cancel') }}</div>
+			<div class="or"></div>
+			<div class="ui positive button">{{ __('continue') }}</div>
+		</div>
+	</div>
+</div>

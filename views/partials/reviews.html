@@ -1,0 +1,33 @@
+{% if profile.reviews.length === 0 %}
+<!-- VOID MESSAGE -->
+<div class="ui icon info message">
+  <i class="icon info letter"></i>
+  <div class="content">
+    <div class="header">You have not received any reviews yet.</div>
+  </div>
+</div>
+{% else %}
+<!-- REVIEWS -->
+<div class="ui minimal comments" style="overflow-x: hidden; overflow-y: auto; height: 17rem;">
+  <div class="comment">
+    {% for review in profile.reviews -%}
+    <a class="avatar" style="margin-top: 5px;">
+    <i class="large circular thumbs {% if review.thumb === true %} green up {% else %}red down{% endif %} outline icon"></i>
+    </a>
+    
+    <div class="content">
+      <a class="author">{{review.title}}</a>
+      <div class="metadata">
+        <span class="date">2 days ago</span>
+      </div>
+      <div class="text">
+        {{review.content}}
+      </div>
+      <div class="actions">
+        <a class="delete">Report</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,6 @@
+node_modules/
+bower_components/
+chat.sublime-workspace
+chat.sublime-project
+report/
+public/prod/

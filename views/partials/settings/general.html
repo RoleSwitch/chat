@@ -1,0 +1,125 @@
+<div class="ui fluid accordion">
+  <div class="title">
+    <div id="local_username" style="float: right;width: 50%;text-align: left;">
+      {{ user.local.username|default("Username")|capitalize }}
+    </div>
+    <div style="width: 50%">
+      <i class="dropdown icon"></i>
+      Nom
+    </div>
+  </div>
+  <div class="content">
+    <div class="ui form" id="updateUsernameForm">
+      <div class="field">
+        <label>New Username</label>
+        <div class="ui left labeled icon input">
+          <input type="text" name="userName" placeholder="New Username">
+          <i class="user icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>To save these settings, please enter your password.</label>
+        <div class="ui left labeled icon input">
+          <input type="password" name="password" placeholder="Password">
+          <i class="lock icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+      <div class="" id="updateUsernameErrorMsg">
+      </div>
+      <div class="ui blue submit button">Save</div>
+    </div>
+  </div>
+
+  <div class="title">
+    <div style="float: right;width: 50%;text-align: left;">
+      {{ user.local.email|default("Email")|capitalize }}
+    </div>
+    <div style="width: 50%">
+      <i class="dropdown icon"></i>
+      Email
+    </div>
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <label>New Email</label>
+        <div class="ui left labeled icon input">
+          <input type="Email" placeholder="New Email">
+          <i class="mail icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>To save these settings, please enter your password.</label>
+        <div class="ui left labeled icon input">
+          <input type="password" placeholder="Password">
+          <i class="lock icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ui error message">
+        <div class="header">We noticed some issues</div>
+      </div>
+      <div class="ui blue submit button" id="updateEmail">Save</div>
+    </div>
+  </div>
+
+  <div class="title">
+    <div style="float: right;width: 50%;text-align: left;">
+      {% if user.local.passwordLastChanged === null %}
+      Never changed
+      {% else %}
+      Updated on {{ user.local.passwordLastChanged|date('M d, Y') }}
+      {% endif %}
+    </div>
+    <div style="width: 50%">
+      <i class="dropdown icon"></i>
+      Password
+    </div>
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <label>Current</label>
+        <div class="ui left labeled icon input">
+          <input type="password">
+          <i class="lock icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>New</label>
+        <div class="ui left labeled icon input">
+          <input type="password">
+          <i class="lock icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Re-type new</label>
+        <div class="ui left labeled icon input">
+          <input type="password">
+          <i class="lock icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ui blue submit button">Save</div>
+    </div>
+  </div>
+</div>

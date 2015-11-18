@@ -1,0 +1,45 @@
+{% extends 'layouts/template.html' %}
+
+{% block title %}{{ __('home title') }}{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="css/home.css"/>
+{% endblock %}
+
+{% block subcontent %}
+  <div class="ui two column grid">
+    <div class="five wide column" style="margin-top:0;">
+      <!-- PROFILE -->
+      {% include 'partials/profile_card.html' %}
+    </div>
+    <div class="eleven wide column" style="margin-top:0;">
+      <!-- QUICK START -->
+      {% include 'partials/switch_area.html' %}
+    </div>
+  </div>
+
+  <!-- USER FEED -->
+  {% include 'partials/feed.html' %}
+{% endblock %}
+
+
+{% block scripts %}
+  <script src="/js/home.js"></script>
+{% endblock %}
+
+{% block etc %}
+  <!-- FIRST-TIME LOGIN -->
+  {% if profile.firstTime === true %}
+  <div class="ui FirstLogin page dimmer">
+    <div class="content">
+      <div class="center">
+        {% include 'partials/first_login.html' %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <!-- CHAT -->
+  {% include 'partials/modals/session_modal.html' %}
+  <!-- ROLES -->
+  {% include 'partials/modals/roles_modal.html' %}
+{% endblock %}

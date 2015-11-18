@@ -1,0 +1,11 @@
+<div class="ui celled horizontal selection list">
+  {% for role in roles -%}
+  <div class="item" id="role_{{role.title|url_encode}}">
+    <img class="ui avatar image" src="/{{role.picture|escape|default('img/roles/default.png')}}">
+    <div class="content">
+      <div class="header">{{role.title|escape|capitalize}}</div>
+      {{role.description|escape|default('An excellent companion')}}
+    </div>
+  </div>
+  {%- endfor %}
+</div>

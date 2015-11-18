@@ -1,0 +1,88 @@
+<div class="ui basic vertical segment">
+	<div class="ui blue top attached segment">
+		<h4 class="ui header">
+			Switch Area
+		    <div class="ui Live toggle checkbox" style="float: right" title="live">
+		       <input name="live" type="checkbox" {% if profile.role.live === true %}checked{% endif %} />
+		       <label></label>
+		    </div>
+		</h4>
+	</div>
+	<div class="ui attached QuickSwitch segment">
+		<div class="ui two column grid">
+			<div class="four wide column">
+				<div class="ui small dimmable image" style="width: auto;">
+					<div class="ui dimmer">
+						<div class="content">
+							<div class="center">
+								<div class="ui tiny blue button" id="showRoles">
+									<i class="large users icon"></i>Switch
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- AVATAR -->
+					<img class="Role image" src="{{profile.role.picture|default('/img/roles/default.png')}}" />
+				</div>
+			</div>
+			<!-- ROLE SETTINGS -->
+			<div class="twelve wide column">
+				<div class="ui form">
+					<div class="field">
+						<div class="ui left icon input">
+							<input type="url" placeholder="Image url" value="{{profile.role.picture|default('')}}" />
+							<i class="photo icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui left icon RoleName input">
+							<input type="text" placeholder="Role name" value="{{profile.role.name|lower|default('')}}" />
+							<i class="user icon"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- SESSION SETTINGS -->
+		<div class="ui floating visible message" style="margin-top: 0;">
+			I want to speak to a 
+			<div class="ui inline dropdown">
+				<div class="text">...</div>
+				<i class="dropdown icon"></i>
+				<div class="Role menu">
+					{% for role in roles -%}
+					<div class="item" data-text="{{role.title|escape|capitalize}}">{{role.title|escape|capitalize}}</div>
+					{%- endfor %}
+				</div>
+			</div>. This session will be 
+			<div class="ui inline dropdown">
+				<div class="text">...</div>
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<div class="item" data-text="public">Public</div>
+					<div class="item active" data-text="private">Private</div>
+				</div>
+			</div> and will last 
+			<div class="ui inline dropdown">
+				<div class="text">...</div>
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<div class="item" data-text="3">3</div>
+					<div class="item" data-text="5">5</div>
+					<div class="item" data-text="10">10</div>
+				</div>
+			</div>minutes.
+		</div>
+
+		<!-- DESCRIPTION -->
+		<div class="ui form">
+			<textarea class="WhatsOnYourMind" maxlenght="250" name="description" placeholder="A factual description so that everyone understands the question and issue and can respond correctly"></textarea>
+		</div>
+		<div class="action" style="border-top: 1px solid #EDEEEE;margin-top: 0.5em;padding: 0.5em 0;">
+			<div class="ui tiny blue right floated button" id="startSession">
+				<div class="content">Connect</div>
+			</div>
+		</div>
+	</div>
+</div>

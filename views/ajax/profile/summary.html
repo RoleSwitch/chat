@@ -1,0 +1,28 @@
+{% set summary = true -%}
+
+<div class="ui two column responsive grid">
+  <div class="five wide column" style="margin-top:0;">
+    <!-- PROFILE -->
+    {%- include '../../partials/profile_card.html' %}
+  </div>
+  <div class="eleven wide column" style="margin-top:0;">
+    <!-- BADGES -->
+    <div class="ui piled blue segment">
+      <h4 class="ui header">
+        <i class="inverted circular blue trophy icon"></i>Badges
+      </h4>
+      {%- include '../../partials/badges_summary.html' with summary %}
+    </div>
+  </div>
+</div>
+<!-- REVIEWS -->
+<div class="ui one column responsive grid">
+  <div class="column">
+    <div class="ui piled blue segment">
+      <h2 class="ui header">
+        <i class="inverted circular blue comment icon"></i> Reviews
+      </h2>
+      {%- include '../../partials/reviews.html' with summary %}
+    </div>
+  </div>
+</div>

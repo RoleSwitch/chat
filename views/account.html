@@ -1,0 +1,68 @@
+{% extends 'layouts/template.html' %}
+
+{% block title %}{{ __('account title') }}{% endblock %}
+
+{% block subcontent %}
+<h2 class="ui header">
+  <i class="inverted circular blue settings icon"></i>Account settings
+</h2>
+<p>Member since {{ user.joinDate|date('M d, Y') }}</p>
+
+<div class="ui dimmer" id="viewLoad">
+  <div class="ui medium text loader">{{ __('loading') }}</div>
+</div>
+
+<div class="ui one column grid">
+  <div class="sixteen wide column" style="margin-top:0;">
+    <div class="ui segment">
+      <h4 class="ui header">
+        <div class="ui red ribbon label">General account settings</div>
+      </h4>
+      {% include 'partials/settings/general.html' %}
+
+      <h4 class="ui header">
+        <div class="ui purple ribbon label">Social Accounts</div>
+      </h4>
+      <p>You can use the following section to connect or disconnect your social accounts.</p>
+      {% include 'partials/settings/linked_accounts.html' %}
+
+      <h4 class="ui header">
+        <div class="ui teal ribbon label">Email Notifications</div>
+      </h4>
+      <p>Activity from your network</p>
+      {% include 'partials/settings/notifications.html' %}
+
+      <h4 class="ui header">
+        <div class="ui blue ribbon label">Language</div>
+      </h4>
+      <div class="ui form">
+        <div class="inline field">
+          <label>Choose primary</label>
+          <div class="ui Language selection dropdown">
+            <input type="hidden" name="language">
+            <div class="default text">English</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="active item" data-value="0">English</div>
+              <div class="item" data-value="1">Francais</div>
+              <div class="item" data-value="2">العربية</div>
+            </div>
+          </div>
+        </div>
+        <div class="ui blue submit button">Save</div>
+      </div>
+
+      <h4 class="ui header">
+        <div class="ui orange ribbon label">Advanced</div>
+      </h4>
+      <a href="#">Hide this account (Invisible mode)</a>
+      <div class="ui divider"></div>
+      <a href="#">Delete this account</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/js/account.js"></script>
+{% endblock %}

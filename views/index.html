@@ -1,0 +1,128 @@
+{% extends 'layouts/main.html' %}
+
+{% block title %}{{ __('index title') }}{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+{% endblock %}
+
+{% block content %}
+	<div class="center aligned row">
+		<!-- TRY Button -->
+		<div class="column">
+			<h1>{{ __('index get started label description') }}</h1>
+			<div class="ui wide purple animated fade button" id="Try">
+				<div class="visible content">{{ __('index button start') }}</div>
+				<div class="hidden content"><i class="large circular white users icon" style="margin-top:-10px;"></i></div>
+			</div>
+		</div>
+	</div>
+	<div class="ui horizontal icon divider">{{ __('index label or') }}</div>
+
+	<div class="row">
+		<!-- LOGIN -->
+		<div class="eight wide column">
+			<div class="ui fluid Login form blue segment">
+				<h3 class="center aligned ui header">{{ __('login') }}</h3>
+				<div class="field">
+					<label>{{ __('email') }}</label>
+					<div class="ui left labeled icon input">
+						<input placeholder="Email" name="lg_email" type="email" value="khocef@gmail.com" />
+						<i class="mail icon"></i>
+						<div class="ui corner label">
+							<i class="icon asterisk"></i>
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<label>{{ __('password') }}</label>
+					<div class="ui left labeled icon input">
+						<input placeholder="Password" name="lg_password" type="password" value="azerty" />
+						<i class="lock icon"></i>
+						<div class="ui corner label">
+							<i class="icon asterisk"></i>
+						</div>
+					</div>
+				</div>
+				<div class="inline field">
+					<div class="ui checkbox">
+						<input type="checkbox" name="lg_rememberme" id="rememberme" />
+						<label for="rememberme">{{ __('index label rememberme') }}</label>
+					</div>
+				</div>
+				<div class="ui fluid blue submit button" id="loginButton">{{ __('login') }}</div>
+				<div id="loginErrorMsg"></div>
+				<br>
+				<div class="two fluid ui buttons">
+					<a class="ui facebook button" href="/auth/facebook">
+						<i class="facebook icon"></i>
+						Facebook
+					</a>
+					<div class="or"></div>
+					<a class="ui google plus button" href="/auth/google">
+						<i class="google plus icon"></i>
+						Google+
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- REGISTER -->
+		<div class="eight wide column">
+			<div class="ui fluid Register form orange segment">
+				<h3 class="center aligned ui header">{{ __('register') }}</h3>
+				<div class="field">
+					<label>{{ __('index label username') }}</label>
+					<div class="ui left labeled icon Username input">
+						<input placeholder="Username" name="rg_username" type="text" id="username" value="khocef" />
+						<i class="user icon"></i>
+						<div class="ui corner label">
+							<i class="icon asterisk"></i>
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<label>{{ __('email') }}</label>
+					<div class="ui left labeled icon input">
+						<input placeholder="Email" name="rg_email" type="email" value="khocef@gmail.com" />
+						<i class="mail icon"></i>
+						<div class="ui corner label">
+							<i class="icon asterisk"></i>
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<label>{{ __('password') }}</label>
+					<div class="ui left labeled icon input">
+						<input placeholder="Password" name="rg_password" type="password" value="azerty" />
+						<i class="lock icon"></i>
+						<div class="ui corner label">
+							<i class="icon asterisk"></i>
+						</div>
+					</div>
+				</div>
+				<div class="inline field">
+					<div class="ui checkbox">
+						<input type="checkbox" name="rg_terms" id="terms" />
+						<label for="terms">
+							{{ __('index label agreetoterms') }}
+							<a href="/terms" target="_blank">{{ __('index link agreetoterms') }}</a>
+						</label>
+					</div>
+				</div>
+				<div class="ui fluid orange register submit button" id="registerButton">{{ __('register') }}</div>
+				<div id="registerErrorMsg"></div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	<script src="/js/index.js"></script>
+{% endblock %}
+
+{% block etcDimmer %}
+	<!-- STEPS -->
+	{% include 'partials/modals/steps_modal.html' %}
+	<!-- CHAT -->
+	{% include 'partials/modals/session_modal.html' %}
+{% endblock %}

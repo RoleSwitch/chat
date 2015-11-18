@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% spaceless %}
+		<title>RoleSwitch - {% block title %}{% endblock %}</title>
+	
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="google-site-verification" content="EFZqPBCnmeIX6EaSoPSU14pO3RschCILBaWGl8eUJ6Q" />
+		
+		<link rel="stylesheet" type="text/css" href="css/semantic.min.css"/>
+  	<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		{%- block stylesheets %}{% endblock -%}
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	  {% if env !== 'development' -%}
+		<script>
+	  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-48637309-2', 'roleswitch.com');ga('send', 'pageview');
+	  </script>
+	  <script>
+			var _rollbarConfig = {
+			    accessToken: {{rollbar_token|json_encode|raw}},
+			    captureUncaught: true,
+			    payload: {
+			        environment: {{env|json_encode|raw}}
+			    }
+			};
+			!function(a,b){function c(b){this.shimId=++h,this.notifier=null,this.parentShim=b,this.logger=function(){},a.console&&void 0===a.console.shimId&&(this.logger=a.console.log)}function d(b,c,d){!d[4]&&a._rollbarWrappedError&&(d[4]=a._rollbarWrappedError,a._rollbarWrappedError=null),b.uncaughtError.apply(b,d),c&&c.apply(a,d)}function e(b){var d=c;return g(function(){if(this.notifier)return this.notifier[b].apply(this.notifier,arguments);var c=this,e="scope"===b;e&&(c=new d(this));var f=Array.prototype.slice.call(arguments,0),g={shim:c,method:b,args:f,ts:new Date};return a._rollbarShimQueue.push(g),e?c:void 0})}function f(a,b){if(b.hasOwnProperty&&b.hasOwnProperty("addEventListener")){var c=b.addEventListener;b.addEventListener=function(b,d,e){c.call(this,b,a.wrap(d),e)};var d=b.removeEventListener;b.removeEventListener=function(a,b,c){d.call(this,a,b._wrapped||b,c)}}}function g(a,b){return b=b||this.logger,function(){try{return a.apply(this,arguments)}catch(c){b("Rollbar internal error:",c)}}}var h=0;c.init=function(a,b){var e=b.globalAlias||"Rollbar";if("object"==typeof a[e])return a[e];a._rollbarShimQueue=[],a._rollbarWrappedError=null,b=b||{};var h=new c;return g(function(){if(h.configure(b),b.captureUncaught){var c=a.onerror;a.onerror=function(){var a=Array.prototype.slice.call(arguments,0);d(h,c,a)};var g,i,j=["EventTarget","Window","Node","ApplicationCache","AudioTrackList","ChannelMergerNode","CryptoOperation","EventSource","FileReader","HTMLUnknownElement","IDBDatabase","IDBRequest","IDBTransaction","KeyOperation","MediaController","MessagePort","ModalWindow","Notification","SVGElementInstance","Screen","TextTrack","TextTrackCue","TextTrackList","WebSocket","WebSocketWorker","Worker","XMLHttpRequest","XMLHttpRequestEventTarget","XMLHttpRequestUpload"];for(g=0;g<j.length;++g)i=j[g],a[i]&&a[i].prototype&&f(h,a[i].prototype)}return a[e]=h,h},h.logger)()},c.prototype.loadFull=function(a,b,c,d){var e=g(function(){var a=b.createElement("script"),e=b.getElementsByTagName("script")[0];a.src=d.rollbarJsUrl,a.async=!c,a.onload=f,e.parentNode.insertBefore(a,e)},this.logger),f=g(function(){if(void 0===a._rollbarPayloadQueue)for(var b,c,d,e,f=new Error("rollbar.js did not load");b=a._rollbarShimQueue.shift();)for(d=b.args,e=0;e<d.length;++e)if(c=d[e],"function"==typeof c){c(f);break}},this.logger);g(function(){c?e():a.addEventListener?a.addEventListener("load",e,!1):a.attachEvent("onload",e)},this.logger)()},c.prototype.wrap=function(b){try{if("function"!=typeof b)return b;if(b._isWrap)return b;if(!b._wrapped){b._wrapped=function(){try{return b.apply(this,arguments)}catch(c){throw a._rollbarWrappedError=c,c}},b._wrapped._isWrap=!0;for(var c in b)b.hasOwnProperty(c)&&(b._wrapped[c]=b[c])}return b._wrapped}catch(d){return b}};for(var i="log,debug,info,warn,warning,error,critical,global,configure,scope,uncaughtError".split(","),j=0;j<i.length;++j)c.prototype[i[j]]=e(i[j]);var k="//d37gvrvc0wt4s1.cloudfront.net/js/v1.0/rollbar.min.js";_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||k;var l=c.init(a,_rollbarConfig);l.loadFull(a,b,!1,_rollbarConfig)}(window,document);
+		</script>
+		{% endif -%}
+
+		{% endspaceless %}
+	</head>
+	<body>
+		<div id="wrapper">
+
+			<!-- HEADER MENU -->
+			{%- block header -%}
+				<div class="ui fixed top inverted menu" id="header">
+					<img class="item" src="img/logo_header.png" alt="RoleSwitch"/>
+					<div class="left menu">
+						<div class="item">
+							<div class="ui icon purple buttons">
+								<a class="ui button" href="/" title="Home">
+									<i class="large white home icon"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					{%- if authenticated -%}
+						<div class="right menu">
+							<div class="item">
+								<div class="ui purple buttons">
+									<a class="ui button" href="/profile">
+										<i class="white user icon"></i>
+										{{ user.local.username|default("Profile")|capitalize }}
+									</a>
+									<div class="ui floating dropdown icon button">
+										<i class="dropdown icon"></i>
+										<div class="menu">
+											<a class="item" href="/account"><i class="edit icon"></i>Edit Account</a>
+											<!-- <div class="item"><i class="hide icon"></i>Invisible Mode</div> -->
+											<a class="item" href="/logout"><i class="sign out icon"></i>Logout</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{%- endif -%}
+				</div>
+			{%- endblock -%}
+
+			<!-- CONTENT -->
+			<div id="content">
+				<div class="ui page grid stackable feature">
+					<div class="vspace10"></div>
+					{%- block content %}{% endblock -%}
+	    		<div class="vspace50"></div>
+				</div>
+			</div>
+
+			<!-- FOOTER -->
+			{%- block footer -%}
+				<div class="ui page grid" id="footer">
+					<div class="center aligned row">
+			      <div class="sixteen wide column">
+
+			      	<!-- SOCIAL BUTTONS -->
+			        <div class="basic social icon menu">
+			          <a class="item" href="http://blog.roleswitch.com" target="_blank">
+			            <i class="rss icon"></i>
+			          </a>
+			          <a class="item" href="https://www.facebook.com/roleswitch" target="_blank">
+			            <i class="facebook icon"></i>
+			          </a>
+			          <a class="item" href="http://www.google.com/+Roleswitch" target="_blank" >
+			            <i class="google plus icon"></i>
+			          </a>
+			          <a class="item" href="http://www.twitter.com/roleswitch" target="_blank">
+			            <i class="twitter icon"></i>
+			          </a>
+			          <a class="item" href="http://www.youtube.com/roleswitch" target="_blank">
+			            <i class="youtube icon"></i>
+			          </a>
+			        </div>
+
+			        <!-- COPYRIGHT TEXT -->
+			        <div class="copyright">
+								Copyright 2014 Roleswitch Inc.
+							  - <a href="/terms">Terms &amp; Conditions</a>
+			        </div>
+			      
+			      </div>
+			    </div>
+				</div>
+			{%- endblock -%}
+
+			<!-- SCRIPTS -->
+			<script src="/js/lib/require.js"></script>
+			<script src="/js/config.js"></script>
+			{%- block scripts %}{% endblock -%}
+
+			<!-- ETC -->
+			{%- block etc -%}
+				<div class="ui dimmer" id="loading">
+					<div class="ui medium text loader">{{ __('loading') }}</div>
+					{%- block etcDimmer %}{% endblock -%}
+				</div>
+			{%- endblock -%}
+
+		</div>
+	</body>
+</html>

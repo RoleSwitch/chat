@@ -1,0 +1,42 @@
+<div id="allBadges">
+
+  {% if profile.badges.length === 1 -%}
+  <!-- VOID MESSAGE -->
+  <div class="ui icon info message">
+    <i class="icon info letter"></i>
+    <div class="content">
+      <div class="header">You have not won any badge yet.</div>
+    </div>
+  </div>
+  {% else -%}
+  <!-- BADGES -->
+  <div class="Badge">
+    <a href="#"><img src="/img/badges/newbie.png"></a>
+    <p><a href="#">Newbie</a> </p>
+    <p>May 03, 2014&nbsp;</p>
+  </div>
+
+  <div class="Badge">
+    <a href="#"><img src="/img/badges/adventurer.png"></a>
+    <p><a href="#">Adventurer</a> </p>
+    <p>May 30, 2014&nbsp;</p>
+  </div>
+
+  <div class="Badge">
+    <a href="#"><img src="/img/badges/explorer.png"></a>
+    <p><a href="#">Explorer</a> </p>
+    <p>October 22, 2014&nbsp;</p>
+  </div>
+  <div class="Badge">
+    <a href="#"><img src="/img/badges/superstar.png"></a>
+    <p><a href="#">Super Star</a> </p>
+    <p>May 03, 2014&nbsp;</p>
+  </div>
+
+  <div class="Badge">
+    <a href="#"><img src="/img/badges/superuser.png"></a>
+    <p><a href="#">Super User</a> </p>
+    <p>May 30, 2014&nbsp;</p>
+  </div>
+  {%- endif %}
+</div>

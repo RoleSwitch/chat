@@ -1,0 +1,35 @@
+{% extends 'layouts/template.html' %}
+
+{% block title %}{{ __('profile title') }}{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="css/profile.css"/>
+{% endblock %}
+
+{% block subcontent %}
+<!-- TOP MENU -->
+<div class="ui responsive grid">
+  <div class="sixteen wide column" style="margin-top:0;">
+    <div class="ui fluid three item pointing secondary menu">
+      <a class="active blue item" id="summary">Summary</a>
+      <a class="blue item" id="badges">Badges<div class="ui small label">
+      	{{ profile.badges.length }}
+      </div></a>
+      <a class="blue item" id="reviews">Reviews<div class="ui small label">
+      	{{ profile.reviews.length }}
+      </div></a>
+    </div>
+  </div>
+</div>
+
+<div id="profileView">
+  <div class="ui dimmer" id="viewLoad">
+    <div class="ui medium text loader">{{ __('loading') }}</div>
+  </div>
+  {% include 'ajax/profile/summary.html' %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/js/profile.js"></script>
+{% endblock %}

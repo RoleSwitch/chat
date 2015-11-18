@@ -1,0 +1,21 @@
+{% set authenticated = true %}
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="row">
+
+	<!-- PAGE CONTENT -->
+  <div class="eleven wide column">
+    {%- block subcontent %}{% endblock -%}
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="five wide column">
+    <!-- PUBLIC SWITCH REQUESTS -->
+    {% include '../partials/side/switch_requests.html' %}
+    <!-- PUBLIC SESSIONS -->
+    {% include '../partials/side/public_sessions.html' %}
+  </div>
+  
+</div>
+{% endblock %}

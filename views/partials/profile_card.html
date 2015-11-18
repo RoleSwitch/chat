@@ -1,0 +1,58 @@
+<div class="ui one items">
+	<a class="Profile item" href="/profile" title="Profile">
+		<!-- ROLE -->
+		<div class="ui CurrentRole blue ribbon label" style="margin-left: 0.85em;">{{ profile.role.title|default("ROLE")|upper }}</div>
+		<!-- AVATAR -->
+		<div class="image">
+			<img src="{{avatar|default('/img/avatar.png')}}" />
+		</div>
+		<div class="content">
+			<!-- RATING -->
+			<div class="meta">
+				<div class="ui rating hover">
+					<i class="icon{% if rating >= 1 %} hover{% endif %}"></i>
+					<i class="icon{% if rating >= 2 %} hover{% endif %}"></i>
+					<i class="icon{% if rating >= 3 %} hover{% endif %}"></i>
+					<i class="icon{% if rating >= 4 %} hover{% endif %}"></i>
+					<i class="icon{% if rating >= 5 %} hover{% endif %}"></i>
+				</div>
+			</div>
+			<!-- USERNAME -->
+			<div class="name">{{ user.local.username|default("Username")|capitalize }}</div>
+			<!-- VOTES -->
+			<div class="ui middle aligned grid description">
+				<div class="equal height Upvote row" style="padding-top: 1rem;">
+					<div class="one wide column">
+						<i class="circular green thumbs up outline icon"></i>
+					</div>
+					<div class="eleven wide column">
+						<div class="ui Vote green striped progress">
+							<div class="bar" style="width: {{thumbs.up}}%;"></div>
+						</div>
+					</div>
+					<div class="two wide right aligned column">
+						{{ profile.thumbsUp }}
+					</div>
+				</div>
+				<div class="equal height Downvote row" style="padding-top: 0;">
+					<div class="one wide column">
+						<i class="circular red thumbs down outline icon"></i>
+					</div>
+					<div class="eleven wide column">
+						<div class="ui Vote red striped progress">
+							<div class="bar" style="width: {{thumbs.down}}%;"></div>
+						</div>
+					</div>
+					<div class="two wide right aligned column">
+						{{ profile.thumbsDown }}
+					</div>
+				</div>
+			</div>
+			<!-- LAST ACTIVITY -->
+			<div class="extra" title="last time logged-in">
+				<i class="time icon"></i>
+				<span data-bind="text: lastSeen">{{ user.lastLogged|date('M d, Y') }}</span>
+			</div>
+		</div>
+	</a>
+</div>
